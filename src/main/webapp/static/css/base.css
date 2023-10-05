@@ -1,0 +1,51 @@
+
+@charset "UTF-8";
+body {
+	background-color: dimgray;
+}
+
+.nav-scroller {
+    position: relative;
+    z-index: 2;
+    height: 2.75rem;
+    overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+    display: flex;
+    flex-wrap: nowrap;
+    padding-bottom: 1rem;
+    margin-top: -1px;
+    overflow-x: auto;
+    text-align: center;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+    
+.main-box {
+	padding-bottom: 75px !important;
+}
+
+.title-box h1 {
+	color: wheat;
+}
+
+.title-box h3 {
+	color: olivedrab;
+	font-style: italic;
+}
+
+.content-box h2 {
+	color: aquamarine;
+	margin-top: 40px;
+}
+
+footer {
+	padding-top: 200px;
+}
+
+footer h6 {
+	color: gray;
+	font-size: 13pt;
+	font-style: italic;
+}
