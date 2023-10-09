@@ -7,13 +7,10 @@
 		<style>
 			.my_form {
 				color: wheat;
-				width: 700px;
+				width: 400px;
 				margin: 20px auto;
 				text-align: left;
 				margin-top: 50px;
-			}
-			.form-group {
-				margin-top: 5px;
 			}
 			footer {
 				padding-top: 0px;
@@ -28,25 +25,20 @@
 			<div class="bg-dark p-5 rounded text-center main-box">
 				<div class="content-box">
 					<!-- Content Placeholder  -->
-					<h2>Сторінка зворотнього зв'язку</h2>
-					<form class="my_form" action="Home?page=sendMessage" method="post">
+					<h2>News create page</h2>
+					<form class="my_form" action="News?page=news_create" method="post">
 						<div class="form-group">
-							<label for="topic" class="form-label">Заголовок:</label>
-							<input id="topic" class="form-control" type="text"  name="topic" required/>
+							<label for="newsTitle" class="form-label">Заголовок новини:</label>
+							<input id="newsTitle" class="form-control" type="text"  name="newsTitle" required/>
 						</div>
 						<div class="form-group">
-							<label for="content" class="form-label">Повідомлення:</label>
-							<textarea id="content" class="form-control" name="content" rows="10" required></textarea>
+							<label for="newsDesc" class="form-label">Опис новини:</label>
+							<textarea id="newsDesc" class="form-control" name="newsDesc"></textarea>
 						</div>
-						<div class="form-group">
-							<label for="recipient" class="form-label">Ваша пошта:</label>
-							<input id="recipient" class="form-control" type="email"  name="recipient" required/>
-						</div>
-						<div class="form-group text-center">
+						<div class="form-group mt-4 text-center">
 							<input type="submit" value="Відправити" class="btn btn-success"/>
 							<input type="reset" value="Очистити" class="btn btn-danger"/>
 						</div>
-						
 					</form>
 					<!-- Content Placeholder  -->
 				</div>

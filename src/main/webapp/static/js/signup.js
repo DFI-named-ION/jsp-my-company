@@ -2,25 +2,25 @@
  * Сценарій валідації даних у формі реєстрації користувачів
  */
 
- $(document).ready(()=>{
-	
+$(document).ready(() => {
+
 	// 0.
 	//---
 	let validate1 = false; // - login
 	let validate2 = false; // - password
 	let validate3 = false; // - password2
-	let validate4 = true; // - email
-	
+	let validate4 = false; // - email
+
 	// 1.
 	//---
-	$("#login").blur(()=>{
+	$("#login").blur(() => {
 		let loginX = $("#login").val();
 		let loginReg = /^[a-zA-Z][a-zA-Z0-9_\-]{5,15}$/;
 		if (loginReg.test(loginX)) {
 			// ->
 			$.ajax({
 				url: 'Auth?page=ajax_signup',
-				data: "login="+loginX,
+				data: "login=" + loginX,
 				success: (response) => {
 					console.log("ajax OK!");
 					console.log(response);
@@ -37,10 +37,10 @@
 			$("#login_error").text('Login does not match the requirments!');
 		}
 	});
-	
+
 	// 2.
 	//---
-	$("#password").blur(()=>{
+	$("#password").blur(() => {
 		let passwordX = $("#password").val();
 		let passwordReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9_\-]{8,}$/;
 		if (passwordReg.test(passwordX)) {
@@ -53,7 +53,7 @@
 	});
 	// 3.
 	//---
-	$("#password2").blur(()=>{
+	$("#password2").blur(() => {
 		let passwordX = $("#password").val();
 		let passwordY = $("#password2").val();
 		if (passwordX === passwordY) {
@@ -64,14 +64,29 @@
 			$("#password2_error").text('Password does not match!');
 		}
 	});
-	
+
 	// 4.
 	//---
-	
-	
+	$("#email").blur(() => {
+		let email = $("#email").val();
+		$.ajax({
+				url: 'Auth?page=ajax_signup',
+				data: "email=" + email,
+				success: (response) => {
+					if (response === "YES") {
+						validate4 = true;
+						$("#email_error").text('');
+					} else {
+						validate4 = false;
+						$("#email_error").text('Email is already taken!');
+					}
+				}
+			});
+	});
+
 	// 5.
 	//---
-	$("#_submit").click(()=>{
+	$("#_submit").click(() => {
 		if (validate1 && validate2 && validate3 && validate4) {
 			console.log("validation TRUE");
 			$("#signupForm").attr('onSubmit', "return true");
@@ -81,5 +96,5 @@
 			alert("Incorrect data!\nUnable to continue!");
 		}
 	});
-	
- });
+
+});

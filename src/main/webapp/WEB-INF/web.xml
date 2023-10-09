@@ -50,4 +50,24 @@
     <servlet-name>Departments</servlet-name>
     <url-pattern>/Departments</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>News</display-name>
+    <servlet-name>News</servlet-name>
+    <servlet-class>controllers.News</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>News</servlet-name>
+    <url-pattern>/News</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Employees</display-name>
+    <servlet-name>Employees</servlet-name>
+    <servlet-class>controllers.Employees</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Employees</servlet-name>
+    <url-pattern>/Employees</url-pattern>
+  </servlet-mapping>
 </web-app>

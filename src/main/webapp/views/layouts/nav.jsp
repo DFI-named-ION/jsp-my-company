@@ -17,7 +17,7 @@
 							          	<a class="nav-link" href="Home?page=about">Про сайт</a>
 							        </li>
 							        <li class="nav-item">
-							          	<a class="nav-link" href="News?page=list">Новини</a>
+							          	<a class="nav-link" href="News?page=news_admin">Новини</a>
 							        </li>
 							        <li class="nav-item">
 							          	<a class="nav-link" href="Products?page=catalog">Продукти</a>
@@ -26,7 +26,7 @@
 							          	<a class="nav-link" href="Home?page=contacts">Контакти</a>
 							        </li>
 							        <li class="nav-item">
-							          	<a class="nav-link" href="Home?page=feedback">Feedback</a>
+							          	<a class="nav-link" href="Home?page=feedback">Зворотній зв'язок</a>
 							        </li>
 							        <li class="nav-item dropdown">
 							        	<a class="nav-link dropdown-toggle" href="#" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">Адмін</a>

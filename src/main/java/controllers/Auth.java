@@ -124,7 +124,14 @@ public class Auth extends HttpServlet {
     
     private void loadJSONSignUpData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	String checkLogin = request.getParameter("login");
-    	boolean checkResult = usersService.checkLoginFree(checkLogin);
+    	String checkEmail = request.getParameter("email");
+    	
+    	boolean checkResult = false;
+    	if (checkLogin != null) {
+    		checkResult = usersService.checkLoginFree(checkLogin);
+    	} else {
+    		checkResult = usersService.checkEmailFree(checkEmail);
+    	}
     	String backMessage = "";
     	// ->
     	if (checkResult) {

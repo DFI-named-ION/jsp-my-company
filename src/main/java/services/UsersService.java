@@ -236,4 +236,45 @@ public class UsersService {
  		}
 		return success;
 	}
+
+	public boolean checkEmailFree(String email) {
+		boolean success = false;
+		try {
+			query = "select email from users where email=?";
+			conn = MySqlProvider.getConnection();
+			stmt = conn.prepareStatement(query);
+			stmt.setString(1, email);
+			// ->
+			res = stmt.executeQuery();
+			if (!res.next()) {
+				success = true;
+			}
+			// ->
+			res.close();
+			stmt.close();
+			conn.close();
+		} catch (ClassNotFoundException ex) {
+			System.out.println("checkEmailFree-ClassNotFound " + ex.getMessage());
+			success = false;
+		} catch (SQLException ex) {
+			System.out.println("checkEmailFree-SQL " + ex.getMessage());
+			success = false;
+		} finally {
+			try {
+				if (res != null) {
+					res.close();
+				}
+				if (stmt != null) {
+					stmt.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (SQLException ex) {
+				
+			}
+ 		}
+		return success;
+	}
+
 }
